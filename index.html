@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,5 +9,42 @@
   <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
   <script defer src="script.js"></script>
 </head>
-<body> <div class="bg-overlay"></div> <div class="container"> <header> <h1> ⚽ Which footballer do you look like? </h1> <p> Upload a photo to find your nearest player match </p> </header> <div class="main-section"> <!-- Upload Card --> <div class="upload-card"> <h3>Your Uploaded Photo</h3> <label for="upload" class="upload-box"> <img id="preview" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="preview" > <div class="upload-text"> CLICK OR DRAG A PHOTO </div> <input type="file" id="upload" accept="image/*" hidden > </label> </div> <!-- Result Card --> <div class="result-card" id="result" hidden> <div class="result-header"> MATCH RESULT </div> <div class="result-player"> <img id="player-image" src="" alt="" > <div> <p class="match-label"> MATCH: </p> <h2 id="result-name"> Neymar Jr </h2> </div> </div> <div class="score-section"> <span id="result-score"> 92.4% </span> <span> MATCH </span> </div> <div class="progress-bar"> <div id="bar" class="progress-fill"> </div> </div> </div> </div> <h2 class="roster-title"> Player Roster </h2> <div class="players-grid" id="roster"> </div> </div> <p id="status"></p> </body>
+
+<body>
+  <div class="bg-overlay"></div>
+  <div class="container">
+    <header>
+      <h1> ⚽ Which footballer do you look like? </h1>
+      <p> Upload a photo to find your nearest player match </p>
+    </header>
+      <div id="status-banner" class="status-banner">
+    🤖 AI System Ready
+</div>
+    <div class="main-section"> <!-- Upload Card -->
+      <div class="upload-card">
+        <h3>Your Uploaded Photo</h3> <label for="upload" class="upload-box"> <img id="preview"
+            src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="preview">
+          <div class="upload-text"> CLICK OR DRAG A PHOTO </div> <input type="file" id="upload" accept="image/*" hidden>
+        </label>
+      </div> <!-- Result Card -->
+      <div class="result-card" id="result" hidden>
+        <div class="result-header"> MATCH RESULT </div>
+        <div class="result-player"> <img id="player-image" src="" alt="">
+          <div>
+            <p class="match-label"> MATCH: </p>
+            <h2 id="result-name"> Neymar Jr </h2>
+          </div>
+        </div>
+        <div class="score-section"> <span id="result-score"> 92.4% </span> <span> MATCH </span> </div>
+        <div class="progress-bar">
+          <div id="bar" class="progress-fill"> </div>
+        </div>
+      </div>
+    </div>
+    <h2 class="roster-title"> Player Roster </h2>
+    <div class="players-grid" id="roster"> </div>
+  </div>
+
+</body>
+
 </html>

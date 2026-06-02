@@ -15,10 +15,28 @@ let descriptors = [];
 
 // ---------- STATUS ----------
 
-function setStatus(msg) {
-  document.getElementById("status").textContent = msg;
-}
+function setStatus(message, type = "loading") {
 
+    const banner =
+        document.getElementById("status-banner");
+
+    banner.textContent = message;
+
+    banner.className =
+        `status-banner ${type}`;
+}
+setStatus(
+    "🔄 Analysing face...",
+    "loading"
+);
+setStatus(
+    "🏆 Match found!",
+    "success"
+);
+setStatus(
+    "❌ No face detected. Try a brighter front-facing photo.",
+    "error"
+);
 // ---------- SIMILARITY ----------
 
 function cosineSimilarity(a, b) {

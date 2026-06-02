@@ -6,7 +6,56 @@
     padding:0;
     box-sizing:border-box;
 }
+.status-banner{
+    width:min(800px,95%);
+    margin:20px auto 35px;
 
+    padding:18px 25px;
+
+    border-radius:18px;
+
+    font-weight:700;
+    font-size:1rem;
+    text-align:center;
+
+    background:rgba(0,255,255,.08);
+
+    border:1px solid rgba(0,255,255,.3);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 0 20px rgba(0,255,255,.15);
+
+    transition:.4s ease;
+}
+
+.status-banner.success{
+    background:rgba(0,255,120,.12);
+    border-color:#32ff99;
+    box-shadow:
+    0 0 25px rgba(50,255,153,.25);
+}
+
+.status-banner.error{
+    background:rgba(255,50,50,.12);
+    border-color:#ff5757;
+    box-shadow:
+    0 0 25px rgba(255,87,87,.25);
+
+    animation:shake .4s;
+}
+
+.status-banner.loading{
+    background:rgba(255,180,0,.12);
+    border-color:#ffb700;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-5px);}
+    75%{transform:translateX(5px);}
+}
 body{
     min-height:100vh;
     font-family:'Poppins',sans-serif;
