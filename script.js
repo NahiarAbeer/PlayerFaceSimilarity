@@ -25,18 +25,6 @@ function setStatus(message, type = "loading") {
     banner.className =
         `status-banner ${type}`;
 }
-setStatus(
-    "🔄 Analysing face...",
-    "loading"
-);
-setStatus(
-    "🏆 Match found!",
-    "success"
-);
-setStatus(
-    "❌ No face detected. Try a brighter front-facing photo.",
-    "error"
-);
 // ---------- SIMILARITY ----------
 
 function cosineSimilarity(a, b) {
@@ -203,6 +191,7 @@ async function matchFace(file) {
     );
 
     showResult(scores[0]);
+    showLeaderboard(scores);
 
   }
 
@@ -365,4 +354,48 @@ window.addEventListener(
 
   }
 );
+function showLeaderboard(players){
 
+    const leaderboard =
+        document.getElementById("leaderboard");
+
+    leaderboard.innerHTML = "";
+
+    players.forEach((player,index)=>{
+
+        const score =
+            Math.max(
+                75,
+                Math.min(
+                    99,
+                    player.score * 100
+                )
+            );
+
+        leaderboard.innerHTML += `
+        
+        <div class="leaderboard-card">
+
+            <div class="rank-number">
+                #${index+1}
+            </div>
+
+            <img src="${player.image}">
+
+            <div class="leaderboard-info">
+
+                <div class="leaderboard-name">
+                    ${player.name}
+                </div>
+
+                <div class="leaderboard-score">
+                    ${score.toFixed(1)}% Match
+                </div>
+
+            </div>
+
+        </div>
+        
+        `;
+    });
+}
