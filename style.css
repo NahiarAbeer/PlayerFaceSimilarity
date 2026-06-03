@@ -157,10 +157,10 @@ header p{
 #preview{
     width:180px;
     height:180px;
-    border-radius:50%;
+    border-radius:5%;
     object-fit:cover;
 
-    border:5px solid #59ffff;
+    border:2px solid #59ffff;
 
     margin-bottom:20px;
 
@@ -194,6 +194,12 @@ header p{
     height:120px;
     object-fit:cover;
     border-radius:18px;
+    object-fit:cover;
+
+    border:2px solid #59ffff;
+
+    margin-bottom:20px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, .5)
 }
 
 .match-label{
@@ -301,14 +307,36 @@ header p{
     .main-section{
         grid-template-columns:1fr;
     }
-
-    #result-score{
-        font-size:2.3rem;
+    header h1{
+        font-size:1.5rem;
     }
-
+    header p{
+        font-size:.8rem;
+    }
+    #result-name{
+        font-size:1rem;
+    }
+    #preview{
+        width:90px;
+        height:90px;
+    }
+    .upload-text{
+        font-size:.9rem;
+    }
+    .result-player img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    #result-score{
+        font-size:1.5rem;
+    }
+    .upload-box{
+        min-height:200px;
+    }
     .result-player{
-        flex-direction:column;
-        text-align:center;
+        flex-direction:row;
     }
 }
 .leaderboard-section{
