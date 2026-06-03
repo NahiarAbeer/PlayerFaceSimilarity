@@ -1,16 +1,62 @@
 const PLAYERS = [
-  { name: "Messi", image: "players/messi.jpg" },
-  { name: "Ronaldo", image: "players/ronaldo.jpg" },
-  { name: "Neymar", image: "players/neymar.jpg" },
-  { name: "Mbappe", image: "players/mbappe.jpg" },
-  { name: "Haaland", image: "players/haaland.jpg" },
-  { name: "Kane", image: "players/kane.jpg" },
-  { name: "Salah", image: "players/salah.jpg" },
-  { name: "Vinicius Jr", image: "players/viniciusjr.jpg" }
+  {
+    name: "Lionel Messi",
+    image: "players/messi.jpg",
+    audio: "audio/messi.mp3"
+  },
+  {
+    name: "Cristiano Ronaldo",
+    image: "players/ronaldo.jpg",
+    audio: "audio/ronald.mp3"
+  },
+  {
+    name: "Neymar Jr",
+    image: "players/neymar.jpg",
+    audio: "audio/neymar.mp3"
+  },
+  {
+    name: "Kylian Mbappé",
+    image: "players/mbappe.jpg",
+    audio: "audio/mbappe.mp3"
+  },
+  {
+    name: "Erling Haaland",
+    image: "players/haaland.jpg",
+    audio: "audio/haaland.mp3"
+  },
+  {
+    name: "Harry Kane",
+    image: "players/kane.jpg",
+    audio: "audio/kane.mp3"
+  },
+  {
+    name: "Mohamed Salah",
+    image: "players/salah.jpg",
+    audio: "audio/salah.mp3"
+  },
+  {
+    name: "Vinícius Júnior",
+    image: "players/viniciusjr.jpg",
+    audio: "audio/vinicius_jr.mp3"
+  },
+  {
+    name: "Achraf Hakimi",
+    image: "players/hakimi.jpg",
+    audio: "audio/hakimi.mp3"
+  },
+  {
+    name: "Emiliano Martínez",
+    image: "players/emi martinez.jpg",
+    audio: "audio/emi_martinez.mp3"
+  },
+  {
+    name: "Lamine Yamal",
+    image: "players/lamine yamal.jpg",
+    audio: "audio/lamine_yamal.mp3"
+  }
 ];
-
 const MODEL_URL = "./models";
-
+let currentAudio = null;
 let descriptors = [];
 
 // ---------- STATUS ----------
@@ -244,9 +290,24 @@ function showResult(player) {
       percent + "%";
 
   setStatus("Match found!");
-
+  if(player.audio){
+    playAudio(player.audio);
 }
 
+}
+function playAudio(audioPath){
+
+    if(currentAudio){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+
+    currentAudio = new Audio(audioPath);
+
+    currentAudio.play().catch(err=>{
+        console.log(err);
+    });
+}
 // ---------- DRAG & DROP ----------
 
 function enableDragDrop() {
@@ -359,9 +420,11 @@ function showLeaderboard(players){
     const leaderboard =
         document.getElementById("leaderboard");
 
-    leaderboard.innerHTML = "";
+    leaderboard.innerHTML = `<h2>
+        Also Found Similarity With:
+        </h2>`;
 
-    players.forEach((player,index)=>{
+    players.slice(1, 3).forEach((player,index)=>{
 
         const score =
             Math.max(
@@ -371,14 +434,10 @@ function showLeaderboard(players){
                     player.score * 100
                 )
             );
-
+        
         leaderboard.innerHTML += `
         
         <div class="leaderboard-card">
-
-            <div class="rank-number">
-                #${index+1}
-            </div>
 
             <img src="${player.image}">
 
@@ -389,7 +448,7 @@ function showLeaderboard(players){
                 </div>
 
                 <div class="leaderboard-score">
-                    ${score.toFixed(1)}% Match
+                    ${Math.round(100-score.toFixed(1))}% Match
                 </div>
 
             </div>
