@@ -303,6 +303,8 @@ function playAudio(audioPath){
     }
 
     currentAudio = new Audio(audioPath);
+    currentAudio.loop = true;   // 🔥 loop forever
+    currentAudio.volume = 1;
 
     currentAudio.play().catch(err=>{
         console.log(err);
