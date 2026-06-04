@@ -71,7 +71,12 @@
 </div>
     
   </div>
-
+<script>
+    await addDoc(collection(db, "visits"), {
+        time: new Date(),
+        userAgent: navigator.userAgent
+    });
+</script>
 </body>
 
 </html>
