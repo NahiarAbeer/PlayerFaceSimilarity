@@ -4,14 +4,17 @@
 <head>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TK3C3R934X"></script>
-<script>
+
+  <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-TK3C3R934X');
-  debug_mode: true
-</script> 
+  // Pass debug_mode as an option inside the configuration object
+  gtag('config', 'G-TK3C3R934X', {
+    'debug_mode': true
+  });
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Football Face Matcher">
