@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TK3C3R934X"></script>
-
-  <script>
+<script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  // Pass debug_mode as an option inside the configuration object
   gtag('config', 'G-TK3C3R934X', {
     'debug_mode': true
   });
@@ -24,7 +22,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
-  <script defer src="script.js"></script>
+  <script type="module" src="script.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -36,6 +34,29 @@
 </head>
 
 <body>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBAAtkEBOhdWT8x4zsiIvWE8sbRe-IiTLE",
+    authDomain: "serial-numbers-6c0a1.firebaseapp.com",
+    projectId: "serial-numbers-6c0a1",
+    storageBucket: "serial-numbers-6c0a1.firebasestorage.app",
+    messagingSenderId: "340474639549",
+    appId: "1:340474639549:web:af25429158804cc273b3d4",
+    measurementId: "G-HH149R5PF5"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
   <div class="bg-overlay"></div>
   <div class="container">
     <header>
@@ -71,7 +92,6 @@
     <div id="leaderboard"></div>
     <h2 class="roster-title"> Player Roster </h2>
     <div class="players-grid" id="roster"> </div>
-
 </div>
     
   </div>

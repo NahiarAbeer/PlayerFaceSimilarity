@@ -1,3 +1,42 @@
+import {
+  db,
+  ref,
+  push,
+  runTransaction
+} from "./firebase.js";
+async function trackVisit() {
+
+  try {
+
+    runTransaction(
+      ref(db, "stats/totalVisitors"),
+      (current) => (current || 0) + 1
+    );
+
+    push(
+      ref(db, "visits"),
+      {
+        time: Date.now(),
+        browser: navigator.userAgent,
+        platform: navigator.platform
+      }
+    );
+
+  }
+
+  catch (err) {
+
+    console.error(
+      "Visit tracking failed:",
+      err
+    );
+
+  }
+
+}
+
+
+
 const PLAYERS = [
   {
     name: "Lionel Messi",
@@ -364,7 +403,7 @@ function enableDragDrop() {
 window.addEventListener(
   "load",
   async () => {
-
+    await trackVisit();
     try {
 
       setStatus(
