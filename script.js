@@ -64,7 +64,31 @@ const PLAYERS = [
     image: "players/lamine yamal.jpg",
     displayImage: "https://i.pinimg.com/736x/03/6e/a1/036ea1cec365c51a96f40088e095a240.jpg",
     audio: "audio/lamine_yamal.mp3"
-  }
+  },
+  {
+  name: "Hamza Chowdhury",
+  image: "players/hamza.jpg",
+  displayImage: "https://i.pinimg.com/736x/44/2a/50/442a507324e81771fbcf2a09b913a9a3.jpg",
+  audio: "audio/hamza.mp3"
+},
+{
+  name: "Zlatan Ibrahimović",
+  image: "players/zlatan.jpg",
+  displayImage: "https://i.pinimg.com/736x/ea/b2/11/eab211c75dd0e7b061b6c9af92275b85.jpg",
+  audio: "audio/zlatan.mp3"
+},
+{
+  name: "Antony",
+  image: "players/antony.jpg",
+  displayImage: "https://i.pinimg.com/736x/a4/d1/7b/a4d17b731caaf7650dc7a49e63579d2c.jpg",
+  audio: "audio/antony.mp3"
+},
+{
+  name: "Robert Lewandowski",
+  image: "players/lewandowski.jpg",
+  displayImage: "https://i.pinimg.com/1200x/ca/9f/b6/ca9fb687dea66634d782500ca9166821.jpg",
+  audio: "audio/lewandowski.mp3"
+}
 ];
 
 import {
