@@ -34,7 +34,16 @@ async function trackVisit() {
   }
 
 }
+async function incrementMatchCount() {
 
+  console.log("MATCH TRACKED");
+
+  await runTransaction(
+    ref(db, "stats/totalMatches"),
+    (current) => (current || 0) + 1
+  );
+
+}
 
 
 const PLAYERS = [
@@ -274,7 +283,7 @@ async function matchFace(file) {
     scores.sort(
       (a, b) => b.score - a.score
     );
-
+    await incrementMatchCount();
     showResult(scores[0]);
     showLeaderboard(scores);
 
