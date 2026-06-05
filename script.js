@@ -390,7 +390,7 @@ window.addEventListener(
     try {
 
       setStatus(
-        "Loading AI models..."
+        "Loading AI models...\n If this takes too long, open in external browser and refresh."
       );
 
       await loadModels();
