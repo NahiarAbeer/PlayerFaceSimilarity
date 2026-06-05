@@ -486,3 +486,20 @@ function showLeaderboard(players){
         `;
     });
 }
+let isReady = false;
+
+window.addEventListener("load", async () => {
+
+    await loadModels();
+
+    const response =
+        await fetch("descriptors.json");
+
+    descriptors =
+        await response.json();
+
+    isReady = true;
+});
+if (!isReady) {
+    alert("Please wait, AI is still loading...");
+}
