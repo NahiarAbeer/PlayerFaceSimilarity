@@ -2,93 +2,104 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Similarity Admin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Similarity Admin</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            padding: 30px;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      padding: 30px;
+    }
 
-        .card {
-            background: #222;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
+    .card {
+      background: #222;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
 
-        h1 {
-            margin-bottom: 30px;
-        }
+    h1 {
+      margin-bottom: 30px;
+    }
 
-        .stat {
-            font-size: 32px;
-            font-weight: bold;
-            color: #00ffff;
-        }
+    .stat {
+      font-size: 32px;
+      font-weight: bold;
+      color: #00ffff;
+    }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    button {
+      padding: 12px 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #00ffff;
+      color: #111;
+    }
 
-        th,
-        td {
-            border: 1px solid #444;
-            padding: 10px;
-            text-align: left;
-        }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
-        th {
-            background: #333;
-        }
-    </style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
+    th,
+    td {
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #333;
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>Player Similarity Dashboard</h1>
+  <h1>Player Similarity Dashboard</h1>
 
-    <div class="card">
-        <h2>Total Visitors</h2>
-        <div class="stat" id="visitors">Loading...</div>
-    </div>
+  <div class="card">
+    <h2>Total Visitors</h2>
+    <div class="stat" id="visitors">Loading...</div>
+  </div>
 
-    <div class="card">
-        <h2>Total Face Matches</h2>
-        <div class="stat" id="matches">Loading...</div>
-    </div>
-    <button id="export">
-        Generate JSON
-    </button>
-    <div class="card">
-        <h2>Recent Visits</h2>
+  <div class="card">
+    <h2>Total Face Matches</h2>
+    <div class="stat" id="matches">Loading...</div>
+  </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>User Agent</th>
-                </tr>
-            </thead>
+  <button id="export">Generate JSON</button>
 
-            <tbody id="visitTable">
+  <div class="card">
+    <h2>Recent Visits</h2>
 
-            </tbody>
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>User Agent</th>
+        </tr>
+      </thead>
 
-        </table>
-    </div>
-    <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+      <tbody id="visitTable"></tbody>
+    </table>
+  </div>
 
-    <script type="module" src="generate_descriptors.js"></script>
-   
-    
-    <script type="module" src="admin.js"></script>
+  <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
+  <script type="module" src="generate_descriptors.js"></script>
+  <script type="module" src="admin.js"></script>
 
 </body>
 
